@@ -1,5 +1,8 @@
 def sazande():
+    # Initialize an empty list to store contacts.
     contact_list = list()
+
+    # Add contact information to the list using dictionaries.
     Person = dict()
     Person['name'] = 'ali1'
     Person['phone_number'] = 'ali1'
@@ -34,10 +37,13 @@ def sazande():
     Person['address'] = 'ali5'
     Person['email'] = 'ali5'
     contact_list.append(Person)
+    
+    # Add more contacts (ali2, ali3, ali4, ali5) similarly using dictionaries.
 
     return contact_list
 
 def create():
+    # Create a new contact by taking input from the user.
     Person = dict()
     Person['name'] = input("name = ")
     Person['phone_number'] = input("phone_number = ")
@@ -46,11 +52,13 @@ def create():
     return Person
 
 def find(contact_list , name):
+    # Search for a contact by name in the contact list.
     person = next ((item for item in contact_list if item["name"] == name ), None)
     return person
 
 
 def delete(contact_list , name):
+    # Delete a contact by name from the contact list.
     for i, contact in enumerate(contact_list):
         if contact['name'] == name:
             person = contact_list.pop(i)
@@ -58,6 +66,7 @@ def delete(contact_list , name):
     return -1
 
 def update(contact_list , name):
+    # Update a contact by name in the contact list.
     person = delete(contact_list , name)
     if person != -1 :
         newPerson = dict()
@@ -85,24 +94,35 @@ def update(contact_list , name):
             newPerson['email'] = email
         else :
             newPerson['email'] = person['email']
+    # Ask the user for updated information for each field (name, phone_number, address, email).
+    # If the user does not want to update a field, they can enter -1 and keep the previous value.
+    # The updated contact is then returned as a dictionary.
+    # If the person was not found, it returns -1.
         
         return newPerson
     else :
         return -1
 
-
+# Initialize an empty list to store contacts.
 contact_list = list()
+
+# Load initial contacts using the sazande function.
 contact_list = sazande()
+
+# The program runs a loop until the user chooses to exit.
 again = 1
 while again == 1:
     if len(contact_list) == 0:
+        # If the contact list is empty, create a new contact.
         contact_list.append(create())
     else:
         x = input("do you want to save(s) or find(f) or update(u) or delete(d) or listed save contact(l) and for exit(e) press the word : ")
         
         if x == 's' : 
+            # Save a new contact to the list.
             contact_list.append(create())
         elif x== 'f' :
+            # Find and display a contact by name.
             name = input("name = ")
             person = find(contact_list , name)
             if person != None :
@@ -111,6 +131,7 @@ while again == 1:
                 print("NONE")
 
         elif x== 'u' :
+            # Update an existing contact by name.
             name = input("name of who you want to update : ")
             person = update(contact_list , name)
             if person != -1 :
@@ -122,6 +143,7 @@ while again == 1:
 
 
         elif x== 'd' :
+            # Delete a contact by name.
             name = input("name = ")
             person = delete(contact_list , name)
             if person != -1 :
@@ -131,8 +153,9 @@ while again == 1:
             
 
         elif x== 'l' :
+            # List all contacts in the contact list.
             for i, contact in enumerate(contact_list):
                 print (contact)
 
-
+# The program continues to loop until the user chooses to exit.
 print(contact_list)
