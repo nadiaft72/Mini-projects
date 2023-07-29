@@ -1,17 +1,28 @@
-dir = input("hello! if you wanna to win you have to found the right way... \n so which one do you choose? left or right? (l/r) ")
+# Ask the user to choose a direction (left or right) to start the adventure.
+dir = input("Hello! If you want to win, you have to find the right way...\nSo which one do you choose? Left or right? (l/r) ")
+
+# Check the user's first choice (left).
 if dir == "l":
-    dir = input("you came to the bear room, so if you choose a bad way you loose! now go! (l/r) ")
-    if(dir == "r"):
-        print("you win :) ")
+    # Ask the user to choose a direction (left or right) in the bear room.
+    dir = input("You came to the bear room. If you choose the wrong way, you lose! Now, go! (l/r) ")
+    
+    # Check the user's choice in the bear room.
+    if dir == "r":
+        print("You win! :)")  # The user chose the correct way in the bear room.
     elif dir == "l":
-        print("oh no!!! :((")
-    else : 
-        print ("wrong awnser... you loose!")
+        print("Oh no!!! :((")  # The user chose the wrong way in the bear room.
+    else:
+        print("Wrong answer... You lose!")  # Invalid input in the bear room.
+
+# Check the user's first choice (right).
 if dir == "r":
-    dir = input("you came to the monster room, so if you choose a bad way you loose! now go! (l/r) ")
-    if(dir == "l"):
-        print("you win :) ")
+    # Ask the user to choose a direction (left or right) in the monster room.
+    dir = input("You came to the monster room. If you choose the wrong way, you lose! Now, go! (l/r) ")
+    
+    # Check the user's choice in the monster room.
+    if dir == "l":
+        print("You win! :)")  # The user chose the correct way in the monster room.
     elif dir == "r":
-        print("oh no!!! :((")
-    else : 
-        print ("wrong awnser... you loose!")
+        print("Oh no!!! :((")  # The user chose the wrong way in the monster room.
+    else:
+        print("Wrong answer... You lose!")  # Invalid input in the monster room.
